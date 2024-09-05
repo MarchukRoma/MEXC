@@ -91,7 +91,7 @@ function App() {
                       className={`custom-input ${
                         isClicked ? "hidden-placeholder" : ""
                       }`}
-                      placeholder="ingresar texto"
+                      placeholder="Ingresar texto"
                       onFocus={handleFocus}
                       style={{ paddingLeft: "40px" }} // Відступ 40px від лівого краю
                     />
@@ -115,7 +115,7 @@ function App() {
                       className={`custom-input ${
                         isClicked2 ? "hidden-placeholder" : ""
                       }`}
-                      placeholder="ingresar texto"
+                      placeholder="Ingresar texto"
                       onFocus={handleFocus2}
                       style={{ paddingLeft: "40px" }} // Відступ 40px від лівого краю
                     />
