@@ -1,8 +1,17 @@
 import { useState } from "react";
 
 function App() {
+  const [current, setCurrent] = useState(0);
+
+  function handleClick() {
+    if (current === 0) setCurrent(1);
+    if (current === 1) setCurrent(2);
+    if (current === 2) setCurrent(0);
+  }
+
   const [isClicked, setIsClicked] = useState(false);
 
+  const arr = ["4000 MXN", "450.000 COP", "21.000 ARS"];
   // Обробник події при натисканні на інпут
   const handleFocus = () => {
     setTimeout(() => {
@@ -34,17 +43,30 @@ function App() {
   };
   return (
     <div>
-      <img src="headerImg.svg" alt="header" />
+      <img
+        src="headerImg.svg"
+        alt="header"
+        onClick={() => {
+          handleClick();
+          console.log(current);
+        }}
+      />
       <div style={{ display: "flex" }}>
         <div>
           <img src="sideBar.svg" alt="sideBar" />
         </div>
+        <div style={{ width: "50px" }}>. </div>
         <div>
+          <div style={{ height: "30px" }}></div>
           <div>
             {/* Зображення, на яке натискають для відкриття модального вікна */}
             {/* <img src="total.svg" alt="total" onClick={openModal} /> */}
             <div style={{ display: "flex", alignItems: "flex-start" }}>
-              <img className="totalImg" src="total1.svg" alt="total" />
+              <img
+                className="totalImg"
+                src={`total1${current}.svg`}
+                alt="total"
+              />
               <img
                 className="totalImg anim"
                 src="total2.svg"
@@ -67,7 +89,7 @@ function App() {
                   >
                     Para retirar dinero de la bolsa de criptomonedas a <br />
                     su cuenta, necesita pagar una comission de <br />
-                    <span style={{ color: "#357AFF" }}>450.000 MXN.</span>
+                    <span style={{ color: "#357AFF" }}>${arr[current]}.</span>
                     <br />
                     Despued del pago, todas las resticciones de retiro <br />
                     seran canceladas y el dinero sera acreditado a su
@@ -129,7 +151,8 @@ function App() {
               </div>
             )}
           </div>
-          <img src="data.svg" alt="data" />
+          <div style={{ height: "40px" }}></div>
+          <img src={`data${current}.svg`} alt="data" />
         </div>
       </div>
     </div>
