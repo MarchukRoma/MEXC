@@ -75,3 +75,14 @@ code {
 .anim:hover {
   content: url("totalHover.svg"); /* Міняємо зображення при наведенні */
 }
+
+.text-to-hide {
+  opacity: 0; /* Спочатку приховано */
+  transform: translateY(-20px); /* Початкове положення для слайду */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.text-to-hide.show {
+  opacity: 1; /* Відобразити */
+  transform: translateY(0); /* Переміщення до кінцевого положення */
+}

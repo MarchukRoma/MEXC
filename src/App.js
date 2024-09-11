@@ -1,6 +1,12 @@
 import { useState } from "react";
 
 function App() {
+  const [isTextVisible, setIsTextVisible] = useState(false); // Новий стейт для видимості
+
+  const handleButtonClick = (e) => {
+    e.stopPropagation(); // Щоб запобігти закриттю модального вікна під час кліку на кнопку
+    setIsTextVisible(true); // Відобразити текст
+  };
   const [current, setCurrent] = useState(0);
 
   function handleClick() {
@@ -86,6 +92,7 @@ function App() {
                       fontSize: "18px",
                       paddingLeft: "20px",
                     }}
+                    className={`text-to-hide ${isTextVisible ? "show" : ""}`} // Додається клас show, коли текст має бути видимим
                   >
                     Para retirar dinero de la bolsa de criptomonedas a <br />
                     su cuenta, necesita pagar una comission de <br />
@@ -144,7 +151,12 @@ function App() {
                   </div>
                   <div style={{ height: "20px" }}></div>
 
-                  <img src="button.svg" alt="button" />
+                  <img
+                    src="button.svg"
+                    alt="button"
+                    className="active-button"
+                    onClick={handleButtonClick} // Виклик функції для показу тексту
+                  />
 
                   <div style={{ height: "20px" }}></div>
                 </div>
