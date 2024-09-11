@@ -23,6 +23,7 @@ code {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  /* position: relative; */
 }
 
 .modal-content {
@@ -31,6 +32,10 @@ code {
   padding-top: 10px;
   border-radius: 8px;
   text-align: center;
+  position: absolute;
+  left: auto;
+  right: auto;
+  bottom: 100px;
 }
 
 .input-container {
