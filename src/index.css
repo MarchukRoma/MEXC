@@ -76,15 +76,29 @@ code {
   content: url("totalHover.svg"); /* Міняємо зображення при наведенні */
 }
 
-.text-to-hide {
+/* .text-to-hide {
   opacity: 0;
-  transform: translateY(-20px); /* Початкове положення для слайду */
+  transform: translateY(-20px);
   transition: opacity 5s ease, transform 2s ease;
   height: 0;
 }
 
 .text-to-hide.show {
-  opacity: 1; /* Відобразити */
+  opacity: 1; 
   height: auto;
-  transform: translateY(0); /* Переміщення до кінцевого положення */
+  transform: translateY(0); 
+} */
+
+.text-to-hide {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 2s ease, transform 2s ease, max-height 3s ease;
+  max-height: 0; /* Початкова висота */
+  overflow: hidden; /* Щоб текст не виходив за межі блоку */
+}
+
+.text-to-hide.show {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px; /* Встановіть більше, ніж максимальна висота контенту */
 }
