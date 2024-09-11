@@ -2,9 +2,11 @@ import { useState } from "react";
 
 function App() {
   const [isTextVisible, setIsTextVisible] = useState(false); // Новий стейт для видимості
+  const [displyText, setDisplay] = useState("block");
 
   const handleButtonClick = (e) => {
     e.stopPropagation(); // Щоб запобігти закриттю модального вікна під час кліку на кнопку
+    setDisplay("block");
     setIsTextVisible(true); // Відобразити текст
   };
   const [current, setCurrent] = useState(0);
@@ -91,8 +93,10 @@ function App() {
                       textAlign: "left",
                       fontSize: "18px",
                       paddingLeft: "20px",
+                      display: `${displyText}`,
                     }}
-                    className={`text-to-hide ${isTextVisible ? "show" : ""}`} // Додається клас show, коли текст має бути видимим
+                    display={{ displyText }}
+                    className={` ${isTextVisible ? "show" : ""} text-to-hide`} // Додається клас show, коли текст має бути видимим
                   >
                     Para retirar dinero de la bolsa de criptomonedas a <br />
                     su cuenta, necesita pagar una comission de <br />

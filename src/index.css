@@ -77,12 +77,14 @@ code {
 }
 
 .text-to-hide {
-  opacity: 0; /* Спочатку приховано */
+  opacity: 0;
   transform: translateY(-20px); /* Початкове положення для слайду */
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 5s ease, transform 2s ease;
+  height: 0;
 }
 
 .text-to-hide.show {
   opacity: 1; /* Відобразити */
+  height: auto;
   transform: translateY(0); /* Переміщення до кінцевого положення */
 }
